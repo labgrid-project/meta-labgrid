@@ -1,0 +1,14 @@
+[Unit]
+Description=Powerrelay init
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+Environment="LC_ALL=C.UTF-8"
+Environment="LANG=C.UTF-8"
+
+ExecStart=/usr/bin/powerrelay run /etc/powerrelay/config.yaml
+
+[Install]
+WantedBy=multi-user.target
