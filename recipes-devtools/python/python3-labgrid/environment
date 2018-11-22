@@ -1,0 +1,5 @@
+### This is an example labgrid exporter ip configuration. This file will be installed
+### into /etc/labgrid/environment and read by the labgrid exporter systemd service.
+
+LABGRID_COORDINATOR_IP=127.0.0.1
+LABGRID_COORDINATOR_PORT=20408

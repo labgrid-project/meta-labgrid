@@ -23,6 +23,9 @@ RDEPENDS_${PN} = " \
 
 SRC_URI = " \
     git://github.com/labgrid-project/labgrid.git;branch=master \
+    file://configuration.yaml \
+    file://labgrid-exporter.service \
+    file://environment \
     "
 
 SRCREV = "30c6cb61e6292f36847e80ec3e5f730ddc4bac72"
@@ -31,4 +34,16 @@ S = "${WORKDIR}/git"
 DEPENDS += "python3-setuptools-scm-native"
 DEPENDS += "python3-pytest-runner-native"
 
-inherit setuptools3
+inherit setuptools3 systemd
+
+SYSTEMD_SERVICE_${PN} = "labgrid-exporter.service"
+
+do_install_append() {
+    install -d ${D}${sysconfdir}/labgrid
+    install -m 0644 ${WORKDIR}/configuration.yaml ${D}${sysconfdir}/labgrid
+    install -m 0644 ${WORKDIR}/environment ${D}${sysconfdir}/labgrid
+    install -d ${D}${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/labgrid-exporter.service ${D}${systemd_system_unitdir}/
+}
+
+FILES_${PN} += "${sysconfdir} ${systemd_system_unitdir}"

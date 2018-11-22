@@ -1,0 +1,21 @@
+### This is an example labgrid exporter configuration. This file will be installed
+### into /etc/labgrid/configuration.yaml on your target and describes your exporter
+### services.
+###
+### Adapt and extend the below configuration to your needs and place it in the
+### BSP layer of you project. Create a python3-labgrid.bbappend file that adds this
+### file to your build:
+###
+###   FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+###
+###   SRC_URI_append := " file://configuration.yaml"
+###
+### ---
+###
+#
+#example-group1-remote:
+#    location: example-location-1-remote
+#    USBSerialPort:
+#      match:
+#        'ID_SERIAL_SHORT': 'FTA8E2HP'
+#      speed: 115200
