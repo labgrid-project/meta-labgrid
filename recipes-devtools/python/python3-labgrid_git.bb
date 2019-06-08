@@ -4,6 +4,7 @@ LICENSE = "LGPL-2.1+"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c0e9407a08421b8c72f578433434f0bd"
 
 RDEPENDS_${PN} = " \
+    coreutils \
     ser2net \
     libgpiod \
     python3-attrs \
