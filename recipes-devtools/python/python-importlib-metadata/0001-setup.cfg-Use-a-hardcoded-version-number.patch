@@ -1,0 +1,25 @@
+From 59817fd609c49a878093d15c34517bfb9fe4ef15 Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Fri, 14 Jun 2019 17:26:28 -0300
+Subject: [PATCH] setup.cfg: Use a hardcoded version number
+Organization: O.S. Systems Software LTDA.
+
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ setup.cfg | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/setup.cfg b/setup.cfg
+index 5e12a34..f17ab67 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -1,5 +1,6 @@
+ [metadata]
+ name = importlib_metadata
++version = 0.17
+ author = Barry Warsaw
+ author_email = barry@python.org
+ url = http://importlib-metadata.readthedocs.io/
+-- 
+2.20.1
+
