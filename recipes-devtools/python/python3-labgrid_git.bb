@@ -7,6 +7,7 @@ RDEPENDS_${PN} = " \
     coreutils \
     ser2net \
     libgpiod \
+    python3-ansicolors \
     python3-attrs \
     python3-asyncio \
     python3-autobahn \
@@ -16,6 +17,7 @@ RDEPENDS_${PN} = " \
     python3-pyserial \
     python3-pytest \
     python3-pyudev \
+    python3-pyusb \
     python3-pyyaml \
     python3-requests \
     python3-xmodem \
@@ -29,7 +31,7 @@ SRC_URI = " \
     file://environment \
     "
 
-SRCREV = "30c6cb61e6292f36847e80ec3e5f730ddc4bac72"
+SRCREV = "7d1ded46aaf1dd13f159645cc5c9f31f7837489d"
 S = "${WORKDIR}/git"
 
 DEPENDS += "python3-setuptools-scm-native"
