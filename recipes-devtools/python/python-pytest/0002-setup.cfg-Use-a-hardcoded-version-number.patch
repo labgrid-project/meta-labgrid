@@ -1,0 +1,27 @@
+From 4ec64f160cbfe0752dc3789ff78cd982f3566a6e Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Fri, 14 Jun 2019 17:49:22 -0300
+Subject: [PATCH 2/2] setup.cfg: Use a hardcoded version number
+Organization: O.S. Systems Software LTDA.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ setup.cfg | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/setup.cfg b/setup.cfg
+index 3626fc5..6f755f0 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -1,5 +1,6 @@
+ [metadata]
+ name = pytest
++version = 4.6.2
+ description = pytest: simple powerful testing with Python
+ long_description = file: README.rst
+ url = https://docs.pytest.org/en/latest/
+-- 
+2.20.1
+
