@@ -16,7 +16,7 @@ This layer depends on:
 | layers: meta
 | branch: master
 |
-| URI: git://git.yoctoproject.org/meta-oe
+| URI: git://git.openembedded.org/meta-openembedded
 | layers: meta-python
 | branch: master
 
@@ -53,7 +53,7 @@ other layers needed. e.g.::
     /path/to/yocto/meta \
     /path/to/yocto/meta-poky \
     /path/to/yocto/meta-yocto-bsp \
-    /path/to/yocto/meta-python \
+    /path/to/yocto/meta-openembedded/meta-python \
     /path/to/yocto/meta-labgrid \
     "
 
