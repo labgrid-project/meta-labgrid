@@ -9,16 +9,16 @@ Dependencies
 
 This layer depends on:
 
-  URI: git://git.openembedded.org/bitbake
-  branch: master
-
-  URI: git://git.openembedded.org/openembedded-core
-  layers: meta
-  branch: master
-
-  URI: git://git.yoctoproject.org/meta-oe
-  layers: meta-python
-  branch: master
+| URI: git://git.openembedded.org/bitbake
+| branch: master
+|
+| URI: git://git.openembedded.org/openembedded-core
+| layers: meta
+| branch: master
+|
+| URI: git://git.yoctoproject.org/meta-oe
+| layers: meta-python
+| branch: master
 
 
 Patches
@@ -27,13 +27,13 @@ Patches
 Please submit patches via GitHub pull request on:
 https://github.com/labgrid-project/meta-labgrid
 
-Maintainer:  ****
+Maintainer:  Enrico Jörns <e.joerns@pengutronix.de>
 
 
 Table of Contents
 =================
 
-  I. Adding the labgrid layer to your build
+ I. Adding the labgrid layer to your build
  II. Building labgrid exporter
  III. References
 
@@ -47,7 +47,7 @@ it.
 Assuming the labgrid layer exists at the top-level of your
 yocto build tree, you can add it to the build system by adding the
 location of the labgrid layer to bblayers.conf, along with any
-other layers needed. e.g.:
+other layers needed. e.g.::
 
   BBLAYERS ?= " \
     /path/to/yocto/meta \
@@ -60,21 +60,21 @@ other layers needed. e.g.:
 
 
 II. Adding the labgrid exporter to Your Device
-====================================================
+==============================================
 
 To prepare your device for using the labgrid exporter,
 you have to follow at least the following steps:
 
-1. Add the `labgrid` package to your systems image recipe:
+1. Add the `labgrid` package to your systems image recipe::
 
-  IMAGE_INSTALL_append = " python3-labgrid"
+    IMAGE_INSTALL_append = " python3-labgrid"
 
-2. Build the rootfs for your device
+2. Build the rootfs for your device::
 
-  bitbake my-machine-recipe
+    bitbake my-machine-recipe
 
 
 III. References
-==============
+===============
 
 [1] Labgrid documentation http://labgrid.readthedocs.io/en/latest/
