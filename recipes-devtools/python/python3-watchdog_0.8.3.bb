@@ -14,7 +14,7 @@ SRC_URI[sha256sum] = "7e65882adb7746039b6f3876ee174952f8eaaa34491ba34333ddf1fe35
 
 S = "${WORKDIR}/watchdog-${PV}"
 
-inherit setuptools
+inherit setuptools3
 
 export BUILD_SYS
 export HOST_SYS
