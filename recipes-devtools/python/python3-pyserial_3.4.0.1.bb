@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d476d94926db6e0008a5b3860d1f5c0d"
 
 inherit pypi setuptools3
 
-PYPI_SRC_URI = "https://github.com/labgrid-project/pyserial/archive/v${PV}.tar.gz"
+PYPI_SRC_URI = "https://github.com/labgrid-project/pyserial/releases/download/v${PV}/pyserial_v${PV}.tar.gz"
 
 SRC_URI[md5sum] = "48d06795b8a9ed517a3fdd16f3d5efbf"
 SRC_URI[sha256sum] = "72bdb6863c4e12047e14be037f6b30e24901aa98af8ac7b63d6aab170db5790e"
