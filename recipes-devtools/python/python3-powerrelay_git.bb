@@ -17,7 +17,7 @@ SRC_URI = " \
     git://github.com/prevas-dk/labgrid-powerrelay.git;protocol=https;branch=master \
     file://labgrid-powerrelay.service \
     "
-SRCREV = "bf5d2e11e0f594757d3d97a6a9f38480713aaace"
+SRCREV = "60ee3d6a09114732eaf33e6aa3ae37486e146a9b"
 
 S = "${WORKDIR}/git"
 
