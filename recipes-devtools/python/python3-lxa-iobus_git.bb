@@ -1,0 +1,35 @@
+DESCRIPTION = "Daemon which interfaces IOBus-devices from Linux Automation GmbH with test-automation tools like labgrid."
+HOMEPAGE = "https://github.com/linux-automation/lxa-iobus"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=0674f4b6076ccd96a8b400a746f71dd3"
+
+RDEPENDS_${PN} = " \
+    python3-aiohttp \
+    python3-aiohttp-json-rpc \
+    python3-can \
+    python3-janus \
+"
+
+SRC_URI = " \
+    git://github.com/linux-automation/lxa-iobus.git;branch=master \
+    file://environment \
+    "
+
+PV = "0.3+git${SRCPV}"
+SRCREV = "0261687d428171ed134399b66506ce7958bcddca"
+
+S = "${WORKDIR}/git"
+
+DEPENDS += "python3-setuptools-scm-native"
+
+inherit setuptools3
+
+do_install:append() {
+    # CAN interface setup is handled by systemd service instead of this script
+    rm -f ${D}${bindir}/lxa-iobus-can-setup
+    install -D -m0644 ${WORKDIR}/environment ${D}${sysconfdir}/lxa-iobus/environment
+    install -D -m0644 ${S}/contrib/systemd/lxa-iobus.service ${D}${systemd_unitdir}/lxa-iobus.service
+
+}
+
+FILES_${PN} += "${libdir}"
