@@ -8,7 +8,7 @@ SRC_URI[sha256sum] = "86bbce30cdd407137c57670993a8f9bfdfe3f8e994b889181d85e844d5
 
 inherit pypi setuptools3
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     ${PYTHON_PN}-twisted \
     ${PYTHON_PN}-zopeinterface \
     ${PYTHON_PN}-py-ubjson \

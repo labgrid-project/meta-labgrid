@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/prevas-dk/labgrid-powerrelay"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=20796caa814f193af92c180d146bb7ec"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     python3-click \
     python3-aiohttp \
     python3-trafaret \
@@ -25,12 +25,12 @@ DEPENDS += "${PYTHON_PN}-pytest-runner-native"
 
 inherit setuptools3 systemd
 
-SYSTEMD_SERVICE_${PN} = "labgrid-powerrelay.service"
+SYSTEMD_SERVICE:${PN} = "labgrid-powerrelay.service"
 
-do_install_append() {
+do_install:append() {
     rm -rf "${D}${datadir}"
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${WORKDIR}/labgrid-powerrelay.service ${D}${systemd_system_unitdir}/
 }
 
-FILES_${PN} += "${systemd_system_unitdir}"
+FILES:${PN} += "${systemd_system_unitdir}"
