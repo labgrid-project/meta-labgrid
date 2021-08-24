@@ -69,7 +69,7 @@ you have to follow at least the following steps:
 
 1. Add the `labgrid` package to your systems image recipe::
 
-    IMAGE_INSTALL_append = " python3-labgrid"
+    IMAGE_INSTALL:append = " python3-labgrid"
 
 2. Build the rootfs for your device::
 
