@@ -1,0 +1,16 @@
+[Unit]
+Description=LXA iobus Server
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/mkdir -p /var/cache/lxa-iobus
+ExecStart=/usr/bin/lxa-iobus-server -l WARN --firmware-directory /var/cache/lxa-iobus --host "::" ${LXAIOBUS_INTERFACE}
+EnvironmentFile=/etc/lxaiobus/environment
+Environment="PYTHONUNBUFFERED=1"
+Restart=on-failure
+RestartForceExitStatus=100
+RestartSec=30
+
+
+[Install]
+WantedBy=network.target

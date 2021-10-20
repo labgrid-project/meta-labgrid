@@ -1,0 +1,4 @@
+### This is an example LXA IOBUS environment configuration. This is currently
+### used to configure the CAN interface to use.
+
+LXAIOBUS_INTERFACE=can0
