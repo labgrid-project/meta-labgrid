@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/linux-automation/lxa-iobus"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=0674f4b6076ccd96a8b400a746f71dd3"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     python3-aiohttp \
     python3-aiohttp-json-rpc \
     python3-can \
@@ -32,4 +32,4 @@ do_install:append() {
 
 }
 
-FILES_${PN} += "${libdir}"
+FILES:${PN} += "${libdir}"

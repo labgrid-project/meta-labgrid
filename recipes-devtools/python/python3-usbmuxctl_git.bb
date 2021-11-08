@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/linux-automation/usbmuxctl"
 LICENSE = "LGPL-2.1+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4fbd65380cdd255951079008b364516c"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     python3-pyusb \
     python3-termcolor \
 "
@@ -26,4 +26,4 @@ do_install:append() {
     install -D -m0644 ${WORKDIR}/99-usbmux.rules ${D}${sysconfdir}/udev/rules.d/99-usbmux.rules
 }
 
-FILES_${PN} += "${sysconfdir}"
+FILES:${PN} += "${sysconfdir}"
