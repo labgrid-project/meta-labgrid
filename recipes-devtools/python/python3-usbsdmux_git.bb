@@ -21,4 +21,4 @@ do_install:append() {
     install -D -m0644 ${WORKDIR}/99-usbsdmux.rules ${D}${sysconfdir}/udev/rules.d/99-usbsdmux.rules
 }
 
-FILES_${PN} += "${sysconfdir}"
+FILES:${PN} += "${sysconfdir}"
