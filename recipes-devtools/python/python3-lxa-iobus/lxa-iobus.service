@@ -1,5 +1,6 @@
 [Unit]
 Description=LXA iobus Server
+After=network.target
 
 [Service]
 Type=simple
@@ -8,9 +9,7 @@ ExecStart=/usr/bin/lxa-iobus-server -l WARN --firmware-directory /var/cache/lxa-
 EnvironmentFile=/etc/lxaiobus/environment
 Environment="PYTHONUNBUFFERED=1"
 Restart=on-failure
-RestartForceExitStatus=100
 RestartSec=30
 
-
 [Install]
-WantedBy=network.target
+WantedBy=multi-user.target

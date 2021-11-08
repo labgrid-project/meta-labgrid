@@ -22,14 +22,15 @@ S = "${WORKDIR}/git"
 
 DEPENDS += "python3-setuptools-scm-native"
 
-inherit setuptools3
+inherit setuptools3 systemd
 
 do_install:append() {
     # CAN interface setup is handled by systemd service instead of this script
     rm -f ${D}${bindir}/lxa-iobus-can-setup
     install -D -m0644 ${WORKDIR}/environment ${D}${sysconfdir}/lxa-iobus/environment
-    install -D -m0644 ${S}/contrib/systemd/lxa-iobus.service ${D}${systemd_unitdir}/lxa-iobus.service
-
+    install -D -m0644 ${S}/contrib/systemd/lxa-iobus.service ${D}${systemd_system_unitdir}/lxa-iobus.service
 }
 
 FILES:${PN} += "${libdir}"
+
+SYSTEMD_SERVICE:${PN} = "lxa-iobus.service"
