@@ -25,7 +25,7 @@ RDEPENDS:${PN} = " \
 "
 
 SRC_URI = " \
-    git://github.com/labgrid-project/labgrid.git;branch=master \
+    git://github.com/labgrid-project/labgrid.git;protocol=https;branch=master \
     file://configuration.yaml \
     file://labgrid-exporter.service \
     file://environment \
