@@ -46,4 +46,4 @@ jobs:
       - name: Build tools
         run: |
           source poky/oe-init-build-env build
-          bitbake python3-pyserial
+          bitbake python3-pyserial sispmctl
