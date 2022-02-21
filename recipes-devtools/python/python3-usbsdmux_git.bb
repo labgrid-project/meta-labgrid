@@ -4,7 +4,7 @@ LICENSE = "LGPL-2.1+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4fbd65380cdd255951079008b364516c"
 
 SRC_URI = " \
-    git://github.com/linux-automation/usbsdmux.git;branch=master \
+    git://github.com/linux-automation/usbsdmux.git;protocol=https;branch=master \
     file://99-usbsdmux.rules \
     "
 

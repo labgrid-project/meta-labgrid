@@ -9,7 +9,7 @@ RDEPENDS:${PN} = " \
 "
 
 SRC_URI = " \
-    git://github.com/linux-automation/usbmuxctl.git;branch=master \
+    git://github.com/linux-automation/usbmuxctl.git;protocol=https;branch=master \
     file://99-usbmux.rules \
     "
 
