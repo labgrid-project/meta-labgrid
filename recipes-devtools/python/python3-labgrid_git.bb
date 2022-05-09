@@ -1,6 +1,6 @@
 DESCRIPTION = "Embedded systems control library for development, testing and installation"
 HOMEPAGE = "https://github.com/labgrid-project"
-LICENSE = "LGPL-2.1+"
+LICENSE = "LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c0e9407a08421b8c72f578433434f0bd"
 
 RDEPENDS:${PN} = " \

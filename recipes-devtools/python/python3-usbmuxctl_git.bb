@@ -1,6 +1,6 @@
 DESCRIPTION = "Control software for Linux Automation GmbH USB-Mux that enables automated testing of embedded USB devices."
 HOMEPAGE = "https://github.com/linux-automation/usbmuxctl"
-LICENSE = "LGPL-2.1+"
+LICENSE = "LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4fbd65380cdd255951079008b364516c"
 
 RDEPENDS:${PN} = " \
