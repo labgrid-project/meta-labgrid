@@ -12,3 +12,11 @@ RDEPENDS:${PN} += " \
 "
 
 BBCLASSEXTEND = "native nativesdk"
+
+do_install:append() {
+    # Move the documentation files to the expected location so they are
+    # packaged in the *-docs package.
+    mkdir -p ${D}${docdir}/
+    mv ${D}/usr/doc/* ${D}${docdir}/
+    rmdir ${D}/usr/doc
+}
