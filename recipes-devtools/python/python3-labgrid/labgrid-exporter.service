@@ -6,7 +6,7 @@ Wants=network-online.target
 [Service]
 Type=simple
 EnvironmentFile=/etc/labgrid/environment
-ExecStart=/usr/bin/python3 /usr/bin/labgrid-exporter -d -x ws://${LABGRID_COORDINATOR_IP}:${LABGRID_COORDINATOR_PORT}/ws /etc/labgrid/configuration.yaml
+ExecStart=/usr/bin/python3 /usr/bin/labgrid-exporter -x ws://${LABGRID_COORDINATOR_IP}:${LABGRID_COORDINATOR_PORT}/ws /etc/labgrid/configuration.yaml
 
 [Install]
 WantedBy=multi-user.target
