@@ -31,13 +31,13 @@ SRC_URI = " \
     file://environment \
     "
 
-SRCREV = "2437f0f3bc09f24a6af660e4ee26c1141184ce9f"
+SRCREV = "b6fee448c41771fc5fee6c41fd2d6f4904549f19"
 S = "${WORKDIR}/git"
 
 DEPENDS += "python3-setuptools-scm-native"
 DEPENDS += "python3-pytest-runner-native"
 
-inherit setuptools3 systemd
+inherit python_setuptools_build_meta systemd
 
 SYSTEMD_SERVICE:${PN} = "labgrid-exporter.service"
 
