@@ -25,13 +25,13 @@ RDEPENDS:${PN} = " \
 "
 
 SRC_URI = " \
-    git://github.com/labgrid-project/labgrid.git;protocol=https;branch=master \
+    git://github.com/labgrid-project/labgrid.git;protocol=https;branch=stable-23.0 \
     file://configuration.yaml \
     file://labgrid-exporter.service \
     file://environment \
     "
 
-SRCREV = "91b710457311db7b7236b65cbb704166d6cf2f27"
+SRCREV = "5111f348d1be459f40192b183fda6daa095d2624"
 S = "${WORKDIR}/git"
 
 DEPENDS += "python3-setuptools-scm-native"
