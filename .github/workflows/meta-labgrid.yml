@@ -12,14 +12,14 @@ on:
 jobs:
   build:
     name: meta-labgrid Build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 720
     steps:
       - name: Install required packages
         run: |
-          sudo apt-get install diffstat
+          sudo apt-get install diffstat chrpath
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: meta-labgrid
       - name: Clone poky
@@ -35,6 +35,8 @@ jobs:
           echo 'INHERIT += "rm_work"' >> conf/local.conf
           echo 'DISTRO_FEATURES:remove = "alsa bluetooth usbgadget usbhost wifi nfs zeroconf pci 3g nfc x11 opengl ptest wayland vulkan"' >> conf/local.conf
           echo 'SSTATE_MIRRORS = "file://.* http://195.201.147.117/sstate-cache/PATH"' >> conf/local.conf
+          echo 'BB_SIGNATURE_HANDLER = "OEBasicHash"' >> conf/local.conf
+          echo 'BB_HASHSERVE = ""' >> conf/local.conf
       - name: Build autobahn
         run: |
           source poky/oe-init-build-env build
