@@ -28,6 +28,7 @@ Please submit patches via GitHub pull request on:
 https://github.com/labgrid-project/meta-labgrid
 
 Maintainers:
+
 - Enrico Jörns <e.joerns@pengutronix.de>
 - Rouven Czerwinski <r.czerwinski@pengutronix.de>
 
