@@ -33,14 +33,6 @@ Maintainers:
 - Rouven Czerwinski <r.czerwinski@pengutronix.de>
 
 
-Table of Contents
-=================
-
- I. Adding the labgrid layer to your build
- II. Building labgrid exporter
- III. References
-
-
 I. Adding the labgrid Layer to Your Build
 =========================================
 
