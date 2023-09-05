@@ -1,3 +1,5 @@
+|MIT| |Matrix|
+
 The meta-labgrid layer provides support for integrating the labgrid exporter
 into your device.
 
@@ -58,3 +60,8 @@ III. References
 ===============
 
 [1] Labgrid documentation http://labgrid.readthedocs.io/en/latest/
+
+.. |MIT| image:: https://img.shields.io/badge/license-MIT-blue.svg
+   :target: https://raw.githubusercontent.com/labgrid-project/meta-labgrid/master/COPYING.MIT
+.. |Matrix| image:: https://img.shields.io/matrix/labgrid:matrix.org?label=matrix%20chat
+   :target: https://app.element.io/#/room/#labgrid:matrix.org
