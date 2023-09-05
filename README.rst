@@ -55,9 +55,26 @@ you have to follow at least the following steps:
 
     bitbake my-machine-recipe
 
+III. Contributing
+=================
 
-III. References
-===============
+To contribute to labgrid itself or to report bugs in labgrid, see
+`<https://labgrid.readthedocs.io/en/latest/development.html#contributing>`_.
+
+To report meta-labgrid bugs, file a new `issue
+<https://github.com/labgrid-project/meta-labgrid/issues>`_ on GitHub.
+
+To fix meta-labgrid bugs, bump recipes or to add new features, open a `pull
+request <https://github.com/labgrid-project/meta-labgrid/pulls>`_ on
+GitHub.
+
+Add a ``Signed-off-by`` line to your commits according to labgrid's
+`Developer’s Certificate of Origin
+<https://labgrid.readthedocs.io/en/latest/development.html#developer-s-certificate-of-origin>`_.
+
+
+IV. References
+==============
 
 [1] Labgrid documentation http://labgrid.readthedocs.io/en/latest/
 
