@@ -49,3 +49,7 @@ jobs:
         run: |
           source poky/oe-init-build-env build
           bitbake sispmctl
+      - name: Build lxa-iobus
+        run: |
+          source poky/oe-init-build-env build
+          bitbake python3-lxa-iobus
