@@ -53,3 +53,7 @@ jobs:
         run: |
           source poky/oe-init-build-env build
           bitbake python3-lxa-iobus
+      - name: Build usbmuxctl
+        run: |
+          source poky/oe-init-build-env build
+          bitbake python3-usbmuxctl
