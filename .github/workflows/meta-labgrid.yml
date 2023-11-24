@@ -57,3 +57,7 @@ jobs:
         run: |
           source poky/oe-init-build-env build
           bitbake python3-usbmuxctl
+      - name: Build usbsdmux
+        run: |
+          source poky/oe-init-build-env build
+          bitbake python3-usbsdmux
