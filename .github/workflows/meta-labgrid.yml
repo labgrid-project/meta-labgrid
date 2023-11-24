@@ -45,7 +45,7 @@ jobs:
         run: |
           source poky/oe-init-build-env build
           bitbake python3-labgrid
-      - name: Build tools
+      - name: Build sispmctl
         run: |
           source poky/oe-init-build-env build
-          bitbake python3-pyserial sispmctl
+          bitbake sispmctl
