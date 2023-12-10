@@ -8,8 +8,7 @@ SRC_URI = " \
     file://99-usbsdmux.rules \
     "
 
-PV = "0.2.1+git${SRCPV}"
-SRCREV = "c3eea7d86e8d0e9a43e36e55e7a175aa7736b8ea"
+SRCREV = "3eb689fac8b5560b56f92b531cbbab654676dae7"
 
 S = "${WORKDIR}/git"
 
