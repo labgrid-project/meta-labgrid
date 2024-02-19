@@ -5,10 +5,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=4fbd65380cdd255951079008b364516c"
 
 SRC_URI = " \
     git://github.com/linux-automation/usbsdmux.git;protocol=https;branch=master \
-    file://99-usbsdmux.rules \
     "
 
-SRCREV = "3eb689fac8b5560b56f92b531cbbab654676dae7"
+SRCREV = "89e93df939a19bab0fa980e914ed39f33afa2785"
 
 S = "${WORKDIR}/git"
 
@@ -17,7 +16,7 @@ DEPENDS += "python3-setuptools-scm-native"
 inherit setuptools3
 
 do_install:append() {
-    install -D -m0644 ${WORKDIR}/99-usbsdmux.rules ${D}${sysconfdir}/udev/rules.d/99-usbsdmux.rules
+    install -D -m0644 ${S}/contrib/udev/99-usbsdmux.rules ${D}${sysconfdir}/udev/rules.d/99-usbsdmux.rules
 }
 
 FILES:${PN} += "${sysconfdir}"
