@@ -30,7 +30,7 @@ SYSTEMD_SERVICE:${PN} = "labgrid-powerrelay.service"
 do_install:append() {
     rm -rf "${D}${datadir}"
     install -d ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/labgrid-powerrelay.service ${D}${systemd_system_unitdir}/
+    install -m 0644 ${UNPACKDIR}/labgrid-powerrelay.service ${D}${systemd_system_unitdir}/
 }
 
 FILES:${PN} += "${systemd_system_unitdir}"
