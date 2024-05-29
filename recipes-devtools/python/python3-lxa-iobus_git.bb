@@ -15,14 +15,14 @@ SRC_URI = " \
     file://environment \
     "
 
-PV = "0.4.2+git${SRCPV}"
-SRCREV = "af8ff293e9867dc4444ee354c06c7f8bcac410a7"
+PV = "0.5.1+git${SRCPV}"
+SRCREV = "1d90a81eef5a61fd0d2bfdcd72a7a1e98cbf1290"
 
 S = "${WORKDIR}/git"
 
 DEPENDS += "python3-setuptools-scm-native"
 
-inherit setuptools3 systemd
+inherit python_setuptools_build_meta systemd
 
 do_install:append() {
     # CAN interface setup is handled by systemd service instead of this script
