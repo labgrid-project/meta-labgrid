@@ -27,7 +27,7 @@ inherit python_setuptools_build_meta systemd
 do_install:append() {
     # CAN interface setup is handled by systemd service instead of this script
     rm -f ${D}${bindir}/lxa-iobus-can-setup
-    install -D -m0644 ${WORKDIR}/environment ${D}${sysconfdir}/lxa-iobus/environment
+    install -D -m0644 ${UNPACKDIR}/environment ${D}${sysconfdir}/lxa-iobus/environment
     install -D -m0644 ${S}/contrib/systemd/lxa-iobus.service ${D}${systemd_system_unitdir}/lxa-iobus.service
 }
 

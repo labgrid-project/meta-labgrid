@@ -42,10 +42,10 @@ SYSTEMD_SERVICE:${PN} = "labgrid-exporter.service"
 
 do_install:append() {
     install -d ${D}${sysconfdir}/labgrid
-    install -m 0644 ${WORKDIR}/configuration.yaml ${D}${sysconfdir}/labgrid
-    install -m 0644 ${WORKDIR}/environment ${D}${sysconfdir}/labgrid
+    install -m 0644 ${UNPACKDIR}/configuration.yaml ${D}${sysconfdir}/labgrid
+    install -m 0644 ${UNPACKDIR}/environment ${D}${sysconfdir}/labgrid
     install -d ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/labgrid-exporter.service ${D}${systemd_system_unitdir}/
+    install -m 0644 ${UNPACKDIR}/labgrid-exporter.service ${D}${systemd_system_unitdir}/
 }
 
 FILES:${PN} += "${sysconfdir} ${systemd_system_unitdir}"
