@@ -1,4 +1,4 @@
-name: meta-labgrid CI
+name: build
 
 on:
   push: {}
