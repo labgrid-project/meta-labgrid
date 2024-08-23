@@ -20,9 +20,9 @@ jobs:
         with:
           path: meta-labgrid
       - name: Clone poky
-        run: git clone -b kirkstone git://git.yoctoproject.org/poky
+        run: git clone --shared --reference-if-able /srv/shared-git/poky.git -b kirkstone https://github.com/yoctoproject/poky.git
       - name: Clone meta-openembedded
-        run: git clone -b kirkstone https://github.com/openembedded/meta-openembedded.git
+        run: git clone --shared --reference-if-able /srv/shared-git/meta-openembedded.git -b kirkstone https://github.com/openembedded/meta-openembedded.git
       - name: Initialize build directory
         run: |
           source poky/oe-init-build-env build
