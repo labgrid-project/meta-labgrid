@@ -19,7 +19,7 @@ RDEPENDS:${PN} = " \
 inherit setuptools3 pypi
 
 do_install:append() {
-    install -D -m0644 ${WORKDIR}/99-usbmux.rules ${D}${sysconfdir}/udev/rules.d/99-usbmux.rules
+    install -D -m0644 ${UNPACKDIR}/99-usbmux.rules ${D}${sysconfdir}/udev/rules.d/99-usbmux.rules
 }
 
 FILES:${PN} += "${sysconfdir}"
