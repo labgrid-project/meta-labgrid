@@ -1,0 +1,82 @@
+name: build
+
+on:
+  push: {}
+  pull_request: {}
+  # allow rebuilding without a push
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    name: meta-labgrid Build
+    # run on self-hosted runner for the main repo or if vars.BUILD_RUNS_ON is set
+    runs-on: >-
+      ${{
+        (vars.BUILD_RUNS_ON != ''  && fromJSON(vars.BUILD_RUNS_ON)) ||
+        (github.repository == 'labgrid-project/meta-labgrid' && fromJSON('["self-hosted", "forrest", "build"]')) ||
+        'ubuntu-22.04'
+      }}
+    # abort if it seems that we're rebuilding too much
+    timeout-minutes: 120
+    steps:
+      - name: Install required packages
+        run: |
+          sudo apt-get -q -y --no-install-recommends install diffstat chrpath
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: meta-labgrid
+      - name: Clone poky
+        run: git clone --shared --reference-if-able /srv/shared-git/poky.git -b scarthgap https://github.com/yoctoproject/poky.git
+      - name: Clone meta-openembedded
+        run: git clone --shared --reference-if-able /srv/shared-git/meta-openembedded.git -b scarthgap https://github.com/openembedded/meta-openembedded.git
+      - name: Initialize build directory
+        run: |
+          source poky/oe-init-build-env build
+          bitbake-layers add-layer ../meta-openembedded/meta-oe
+          bitbake-layers add-layer ../meta-openembedded/meta-python
+          bitbake-layers add-layer ../meta-labgrid
+          if [ -f ~/.yocto/auto.conf ]; then
+            cp ~/.yocto/auto.conf conf/
+          else
+            echo 'SSTATE_MIRRORS = "file://.* https://github-runner.pengutronix.de/sstate-cache/PATH"' >> conf/auto.conf
+            echo 'BB_SIGNATURE_HANDLER = "OEBasicHash"' >> conf/auto.conf
+            echo 'BB_HASHSERVE = ""' >> conf/auto.conf
+            echo 'OPKGBUILDCMD = "opkg-build -Z gzip -a -1n"' >> conf/auto.conf
+            echo 'INHERIT += "rm_work"' >> conf/auto.conf
+          fi
+          echo 'DISTRO_FEATURES:remove = "alsa bluetooth usbgadget usbhost wifi nfs zeroconf pci 3g nfc x11 opengl ptest wayland vulkan"' >> conf/local.conf
+      - name: Build autobahn
+        run: |
+          source poky/oe-init-build-env build
+          bitbake python3-autobahn
+      - name: Build labgrid
+        run: |
+          source poky/oe-init-build-env build
+          bitbake python3-labgrid
+      - name: Build sispmctl
+        run: |
+          source poky/oe-init-build-env build
+          bitbake sispmctl
+      - name: Build lxa-iobus
+        run: |
+          source poky/oe-init-build-env build
+          bitbake python3-lxa-iobus
+      - name: Build usbmuxctl
+        run: |
+          source poky/oe-init-build-env build
+          bitbake python3-usbmuxctl
+      - name: Build usbsdmux
+        run: |
+          source poky/oe-init-build-env build
+          bitbake python3-usbsdmux
+      - name: Cache Data
+        env:
+          CACHE_KEY: ${{ secrets.YOCTO_CACHE_KEY }}
+        if: ${{ env.CACHE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$CACHE_KEY" >> ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          rsync -rvx --ignore-existing build/downloads yocto-cache: || true
+          rsync -rvx --ignore-existing build/sstate-cache yocto-cache: || true
