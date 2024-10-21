@@ -1,0 +1,15 @@
+[Unit]
+Description=Labgrid Exporter
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Environment="PYTHONUNBUFFERED=1"
+EnvironmentFile=/etc/labgrid/environment
+ExecStart=/usr/bin/labgrid-exporter --coordinator ${LABGRID_COORDINATOR_IP}:${LABGRID_COORDINATOR_PORT} /etc/labgrid/configuration.yaml
+Restart=on-failure
+RestartForceExitStatus=100
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
