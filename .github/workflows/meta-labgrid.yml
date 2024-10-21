@@ -3,6 +3,8 @@ name: meta-labgrid CI
 on:
   push: {}
   pull_request: {}
+  # allow rebuilding without a push
+  workflow_dispatch: {}
 
 jobs:
   build:
