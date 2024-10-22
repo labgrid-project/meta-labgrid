@@ -70,6 +70,13 @@ jobs:
         run: |
           source poky/oe-init-build-env build
           bitbake python3-usbsdmux
+      - name: Enable development version for labgrid
+        run: |
+          echo 'LABGRID_USE_DEVEL_VERSION = "1"' >> build/conf/local.conf
+      - name: Build labgrid (development version)
+        run: |
+          source poky/oe-init-build-env build
+          bitbake python3-labgrid
       - name: Cache Data
         env:
           CACHE_KEY: ${{ secrets.YOCTO_CACHE_KEY }}
