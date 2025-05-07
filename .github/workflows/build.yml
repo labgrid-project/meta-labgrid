@@ -46,10 +46,6 @@ jobs:
             echo 'INHERIT += "rm_work"' >> conf/auto.conf
           fi
           echo 'DISTRO_FEATURES:remove = "alsa bluetooth usbgadget usbhost wifi nfs zeroconf pci 3g nfc x11 opengl ptest wayland vulkan"' >> conf/local.conf
-      - name: Build autobahn
-        run: |
-          source poky/oe-init-build-env build
-          bitbake python3-autobahn
       - name: Build labgrid
         run: |
           source poky/oe-init-build-env build
