@@ -9,8 +9,10 @@ RDEPENDS:${PN} = " \
     python3-ansicolors \
     python3-asyncio \
     python3-attrs \
-    python3-autobahn \
     python3-graphviz \
+    python3-grpcio \
+    python3-grpcio-channelz \
+    python3-grpcio-reflection \
     python3-jinja2 \
     python3-multiprocessing \
     python3-pexpect \
