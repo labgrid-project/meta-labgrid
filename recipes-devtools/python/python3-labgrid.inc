@@ -30,7 +30,6 @@ SRC_URI = " \
     file://environment \
     "
 
-SRCREV = "ba15037ff7fb2cd0748aa404c6cf6dcff6c3b143"
 S = "${WORKDIR}/git"
 
 DEPENDS += "python3-setuptools-scm-native"
