@@ -5,12 +5,14 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=c0e9407a08421b8c72f578433434f0bd"
 
 RDEPENDS:${PN} = " \
     coreutils \
-    ser2net \
     libgpiod \
     python3-ansicolors \
-    python3-attrs \
     python3-asyncio \
-    python3-autobahn \
+    python3-attrs \
+    python3-graphviz \
+    python3-grpcio \
+    python3-grpcio-channelz \
+    python3-grpcio-reflection \
     python3-jinja2 \
     python3-multiprocessing \
     python3-pexpect \
@@ -21,7 +23,7 @@ RDEPENDS:${PN} = " \
     python3-pyyaml \
     python3-requests \
     python3-xmodem \
-    python3-graphviz \
+    ser2net \
 "
 
 SRC_URI = " \
@@ -30,7 +32,6 @@ SRC_URI = " \
     file://environment \
     "
 
-SRCREV = "ba15037ff7fb2cd0748aa404c6cf6dcff6c3b143"
 S = "${WORKDIR}/git"
 
 DEPENDS += "python3-setuptools-scm-native"
