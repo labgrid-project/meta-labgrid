@@ -4,7 +4,10 @@ After=network.target
 
 [Service]
 Environment="PYTHONUNBUFFERED=1"
-ExecStart=/usr/bin/labgrid-coordinator
+Environment="LABGRID_COORDINATOR_LISTEN_IP=0.0.0.0"
+Environment="LABGRID_COORDINATOR_PORT=20408"
+EnvironmentFile=/etc/labgrid/environment
+ExecStart=/usr/bin/labgrid-coordinator -l ${LABGRID_COORDINATOR_LISTEN_IP}:${LABGRID_COORDINATOR_PORT}
 Restart=on-failure
 DynamicUser=yes
 StateDirectory=labgrid-coordinator
