@@ -26,6 +26,13 @@ RDEPENDS:${PN} = " \
     ser2net \
 "
 
+RRECOMMENDS:${PN} = " \
+    ethtool \
+    iproute2-ip \
+    rsync \
+    socat \
+"
+
 SRC_URI = " \
     file://configuration.yaml \
     file://labgrid-exporter.service \
