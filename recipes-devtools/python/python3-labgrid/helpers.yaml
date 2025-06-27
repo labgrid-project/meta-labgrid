@@ -1,0 +1,8 @@
+### This is an example labgrid helpers. This file will be installed to
+### /etc/labgrid/helpers.yaml and read by helpers that need a configuration.
+
+## Configuration for labgrid-raw-interface; under denied-interfaces a list of
+## interfaces that shall not be touched by labgrid can be specified.
+#raw-interface:
+#  denied-interfaces:
+#    - 'eth1'
