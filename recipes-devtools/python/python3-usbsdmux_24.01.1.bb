@@ -9,8 +9,6 @@ SRC_URI = " \
 
 SRCREV = "89e93df939a19bab0fa980e914ed39f33afa2785"
 
-S = "${WORKDIR}/git"
-
 DEPENDS += "python3-setuptools-scm-native"
 
 inherit setuptools3

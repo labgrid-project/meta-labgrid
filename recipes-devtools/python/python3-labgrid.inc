@@ -32,8 +32,6 @@ SRC_URI = " \
     file://environment \
     "
 
-S = "${WORKDIR}/git"
-
 DEPENDS += "python3-setuptools-scm-native"
 DEPENDS += "python3-pytest-runner-native"
 

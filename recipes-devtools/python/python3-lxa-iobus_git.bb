@@ -18,8 +18,6 @@ SRC_URI = " \
 PV = "0.5.1+git${SRCPV}"
 SRCREV = "1d90a81eef5a61fd0d2bfdcd72a7a1e98cbf1290"
 
-S = "${WORKDIR}/git"
-
 DEPENDS += "python3-setuptools-scm-native"
 
 inherit python_setuptools_build_meta systemd

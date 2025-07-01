@@ -19,8 +19,6 @@ SRC_URI = " \
     "
 SRCREV = "41c030f09495f67e5573b6f0d7411fef71d92e9e"
 
-S = "${WORKDIR}/git"
-
 DEPENDS += "${PYTHON_PN}-pytest-runner-native"
 
 inherit setuptools3 systemd
