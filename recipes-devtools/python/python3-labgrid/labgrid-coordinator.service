@@ -1,0 +1,15 @@
+[Unit]
+Description=Labgrid Coordinator
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=%S/labgrid-coordinator
+Environment="PYTHONUNBUFFERED=1"
+EnvironmentFile=/etc/labgrid/environment
+ExecStart=/usr/bin/labgrid-coordinator --listen ${LABGRID_COORDINATOR_IP}:${LABGRID_COORDINATOR_PORT}
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

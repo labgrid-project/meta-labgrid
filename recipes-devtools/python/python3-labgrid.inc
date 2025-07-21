@@ -28,6 +28,7 @@ RDEPENDS:${PN} = " \
 
 SRC_URI = " \
     file://configuration.yaml \
+    file://labgrid-coordinator.service \
     file://labgrid-exporter.service \
     file://environment \
     "
@@ -37,13 +38,14 @@ DEPENDS += "python3-pytest-runner-native"
 
 inherit python_setuptools_build_meta systemd
 
-SYSTEMD_SERVICE:${PN} = "labgrid-exporter.service"
+SYSTEMD_SERVICE:${PN} = "labgrid-exporter.service labgrid-coordinator.service"
 
 do_install:append() {
     install -d ${D}${sysconfdir}/labgrid
     install -m 0644 ${UNPACKDIR}/configuration.yaml ${D}${sysconfdir}/labgrid
     install -m 0644 ${UNPACKDIR}/environment ${D}${sysconfdir}/labgrid
     install -d ${D}${systemd_system_unitdir}
+    install -m 0644 ${UNPACKDIR}/labgrid-coordinator.service ${D}${systemd_system_unitdir}/
     install -m 0644 ${UNPACKDIR}/labgrid-exporter.service ${D}${systemd_system_unitdir}/
 }
 
