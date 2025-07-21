@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/linux-automation/usbmuxctl"
 LICENSE = "LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4fbd65380cdd255951079008b364516c"
 
-SRC_URI[sha256sum] = "b7a9c7bf0645e0d2026fc63307a6724c24be6a33961f0f65cc313be7c8d45feb"
+SRC_URI[sha256sum] = "f200647bd72ea5b5a77d6d9e1f0641e2aae1da37fc2317a2f73929b034388845"
 
 SRC_URI += " \
     file://99-usbmux.rules \
@@ -16,7 +16,7 @@ RDEPENDS:${PN} = " \
     python3-termcolor \
 "
 
-inherit setuptools3 pypi
+inherit python_setuptools_build_meta pypi
 
 do_install:append() {
     install -D -m0644 ${UNPACKDIR}/99-usbmux.rules ${D}${sysconfdir}/udev/rules.d/99-usbmux.rules
