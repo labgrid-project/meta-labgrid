@@ -5,10 +5,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=4fbd65380cdd255951079008b364516c"
 
 SRC_URI[sha256sum] = "f200647bd72ea5b5a77d6d9e1f0641e2aae1da37fc2317a2f73929b034388845"
 
-SRC_URI += " \
-    file://99-usbmux.rules \
-    "
-
 DEPENDS += "python3-setuptools-scm-native"
 
 RDEPENDS:${PN} = " \
@@ -19,7 +15,7 @@ RDEPENDS:${PN} = " \
 inherit python_setuptools_build_meta pypi
 
 do_install:append() {
-    install -D -m0644 ${UNPACKDIR}/99-usbmux.rules ${D}${sysconfdir}/udev/rules.d/99-usbmux.rules
+    install -D -m0644 ${S}/contrib/udev/99-usbmux.rules ${D}${sysconfdir}/udev/rules.d/99-usbmux.rules
 }
 
 FILES:${PN} += "${sysconfdir}"
