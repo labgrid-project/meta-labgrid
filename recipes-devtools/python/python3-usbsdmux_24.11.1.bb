@@ -7,11 +7,11 @@ SRC_URI = " \
     git://github.com/linux-automation/usbsdmux.git;protocol=https;branch=master \
     "
 
-SRCREV = "89e93df939a19bab0fa980e914ed39f33afa2785"
+SRCREV = "051f3816aea89623aaa24b6720e92442f03e2f76"
 
 DEPENDS += "python3-setuptools-scm-native"
 
-inherit setuptools3
+inherit python_setuptools_build_meta
 
 do_install:append() {
     install -D -m0644 ${S}/contrib/udev/99-usbsdmux.rules ${D}${sysconfdir}/udev/rules.d/99-usbsdmux.rules

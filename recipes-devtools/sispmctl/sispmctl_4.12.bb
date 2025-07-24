@@ -10,4 +10,4 @@ PACKAGECONFIG[web] = "--disable-webless,--enable-webless,"
 
 SRC_URI = "https://sourceforge.net/projects/sispmctl/files/sispmctl/sispmctl-${PV}/sispmctl-${PV}.tar.gz"
 
-SRC_URI[sha256sum] = "74b94a3710046b15070c7311f0cacb81554c86b4227719cc2733cb96c7052578"
+SRC_URI[sha256sum] = "e757863a4838da6e1ca72a57adc5aca6fc47ffbddc72a69052d8abd743d57082"
