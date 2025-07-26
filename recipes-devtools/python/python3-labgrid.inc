@@ -24,10 +24,19 @@ RDEPENDS:${PN} = " \
     python3-requests \
     python3-xmodem \
     ser2net \
+    sudo \
+"
+
+RRECOMMENDS:${PN} = " \
+    ethtool \
+    iproute2-ip \
+    rsync \
+    socat \
 "
 
 SRC_URI = " \
     file://configuration.yaml \
+    file://helpers.yaml \
     file://labgrid-exporter.service \
     file://environment \
     "
@@ -39,9 +48,16 @@ inherit python_setuptools_build_meta systemd
 
 SYSTEMD_SERVICE:${PN} = "labgrid-exporter.service"
 
+# Client/library access to the device via SSH as "root" user is assumed.
+# Additional configuration (dedicated user and related sudoers config for
+# password-less helpers usage) shall be done separately.
 do_install:append() {
+    install -d ${D}${sbindir}
+    install -m 0755 ${S}/helpers/labgrid-* ${D}${sbindir}
+
     install -d ${D}${sysconfdir}/labgrid
     install -m 0644 ${UNPACKDIR}/configuration.yaml ${D}${sysconfdir}/labgrid
+    install -m 0644 ${UNPACKDIR}/helpers.yaml ${D}${sysconfdir}/labgrid
     install -m 0644 ${UNPACKDIR}/environment ${D}${sysconfdir}/labgrid
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${UNPACKDIR}/labgrid-exporter.service ${D}${systemd_system_unitdir}/
