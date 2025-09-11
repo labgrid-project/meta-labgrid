@@ -1,0 +1,123 @@
+recipes:
+  - recipe: "recipes-devtools/python/python3-aiohttp-json-rpc_$PV.bb"
+    template: "template.bb.jinja2"
+    pypi:
+      name: aiohttp-json-rpc
+      version_pattern: "^([\\d+\\.]*\\d+)$"
+      version_order: semver
+    header: |-
+      require python3-aiohttp-json-rpc.inc
+
+  - recipe: "recipes-devtools/python/python3-grpcio-channelz_$PV.bb"
+    template: "template.bb.jinja2"
+    pypi:
+      name: grpcio_channelz
+      version_pattern: "^([\\d+\\.]*\\d+)$"
+      version_order: semver
+    header: |-
+      require python3-grpcio-channelz.inc
+
+  - recipe: "recipes-devtools/python/python3-grpcio-reflection_$PV.bb"
+    template: "template.bb.jinja2"
+    pypi:
+      name: grpcio_reflection
+      version_pattern: "^([\\d+\\.]*\\d+)$"
+      version_order: semver
+    header: |-
+      require python3-grpcio-reflection.inc
+
+  - recipe: "recipes-devtools/python/python3-janus_$PV.bb"
+    template: "template.bb.jinja2"
+    pypi:
+      name: janus
+      version_pattern: "^([\\d+\\.]*\\d+)$"
+      version_order: semver
+    header: |-
+      require python3-janus.inc
+
+  - recipe: "recipes-devtools/python/python3-labgrid_$PV.bb"
+    template: "template.bb.jinja2"
+    git_tag:
+      url: "https://github.com/labgrid-project/labgrid.git"
+      version_pattern: "^v([\\d+\\.]*\\d+)$"
+      version_order: semver
+    header: |-
+      require python3-labgrid.inc
+
+  - recipe: "recipes-devtools/python/python3-labgrid_git.bb"
+    template: "template.bb.jinja2"
+    git_branch:
+      url: "https://github.com/labgrid-project/labgrid.git"
+      branch: master
+      version_pattern: "^v([\\d+\\.]*\\d+).*"
+    header: |-
+      require python3-labgrid.inc
+    trailer: |-
+      LABGRID_USE_DEVEL_VERSION[doc] = "Global switch to enable labgrid development (git) version"
+      LABGRID_USE_DEVEL_VERSION ??= "-1"
+      DEFAULT_PREFERENCE ??= "${LABGRID_USE_DEVEL_VERSION}"
+
+  - recipe: "recipes-devtools/python/python3-lxa-iobus_$PV.bb"
+    template: "template.bb.jinja2"
+    git_tag:
+      url: "https://github.com/linux-automation/lxa-iobus.git"
+      version_pattern: "^v([\\d+\\.]*\\d+)$"
+      version_order: semver
+    header: |-
+      require python3-lxa-iobus.inc
+
+  - recipe: "recipes-devtools/python/python3-lxa-iobus_git.bb"
+    template: "template.bb.jinja2"
+    git_branch:
+      url: "https://github.com/linux-automation/lxa-iobus.git"
+      branch: master
+      version_pattern: "^v([\\d+\\.]*\\d+).*"
+    header: |-
+      require python3-lxa-iobus.inc
+    trailer: |-
+      LXA_IOBUS_USE_DEVEL_VERSION[doc] = "Global switch to enable lxa-iobus development (git) version"
+      LXA_IOBUS_USE_DEVEL_VERSION ??= "-1"
+      DEFAULT_PREFERENCE ??= "${LXA_IOBUS_USE_DEVEL_VERSION}"
+
+  - recipe: "recipes-devtools/python/python3-powerrelay_git.bb"
+    template: "template.bb.jinja2"
+    git_branch:
+      url: "https://github.com/prevas-dk/labgrid-powerrelay.git"
+      branch: master
+    header: |-
+      require python3-powerrelay.inc
+
+  - recipe: "recipes-devtools/python/python3-pyserial_$PV.bb"
+    template: "template.bb.jinja2"
+    github_release:
+      project: labgrid-project/pyserial
+      version_pattern: "^v([\\d+\\.]*\\d+)$"
+      version_order: semver
+    header: |-
+      require python3-pyserial.inc
+
+  - recipe: "recipes-devtools/python/python3-usbmuxctl_$PV.bb"
+    template: "template.bb.jinja2"
+    pypi:
+      name: usbmuxctl
+      version_pattern: "^([\\d+\\.]*\\d+)$"
+      version_order: semver
+    header: |-
+      require python3-usbmuxctl.inc
+
+  - recipe: "recipes-devtools/python/python3-usbsdmux_$PV.bb"
+    template: "template.bb.jinja2"
+    git_tag:
+      url: "https://github.com/linux-automation/usbsdmux.git"
+      version_pattern: "^([\\d+\\.]*\\d+)$"
+      version_order: semver
+    header: |-
+      require python3-usbsdmux.inc
+
+  - recipe: "recipes-devtools/sispmctl/sispmctl_$PV.bb"
+    template: "template.bb.jinja2"
+    sourceforge:
+      project: sispmctl
+      version_pattern: ".*sispmctl-([\\d+\\.]*\\d+)\\.tar\\.gz.*"
+    header: |-
+      require sispmctl.inc
