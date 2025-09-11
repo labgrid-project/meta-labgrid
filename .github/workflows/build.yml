@@ -81,14 +81,20 @@ jobs:
           source poky/oe-init-build-env build
           bitbake python3-powerrelay
 
-      - name: Enable development version for labgrid
+      - name: Enable development versions
         run: |
           echo 'LABGRID_USE_DEVEL_VERSION = "1"' >> build/conf/local.conf
+          echo 'LXA_IOBUS_USE_DEVEL_VERSION = "1"' >> build/conf/local.conf
 
       - name: Build labgrid (development version)
         run: |
           source poky/oe-init-build-env build
           bitbake python3-labgrid
+
+      - name: Build lxa-iobus (development version)
+        run: |
+          source poky/oe-init-build-env build
+          bitbake python3-lxa-iobus
 
       - name: Cache Data
         env:
