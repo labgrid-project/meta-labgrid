@@ -11,7 +11,7 @@ RDEPENDS:${PN} = " \
 "
 
 SRC_URI = " \
-    git://github.com/linux-automation/lxa-iobus.git;protocol=https;branch=master \
+    git://github.com/linux-automation/lxa-iobus.git;protocol=https;branch=${SRCBRANCH} \
     file://environment \
     "
 
