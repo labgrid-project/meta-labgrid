@@ -22,6 +22,9 @@ jobs:
         run: gh workflow run build --ref master
 
       - name: Trigger scarthgap build
+        run: gh workflow run build --ref walnascar
+
+      - name: Trigger scarthgap build
         run: gh workflow run build --ref scarthgap
 
       - name: Trigger kirkstone build

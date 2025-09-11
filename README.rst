@@ -1,3 +1,15 @@
+.. list-table::
+   :header-rows: 1
+
+   * - master
+     - walnascar
+     - scarthgap
+     - kirkstone
+   * - |gh_master|
+     - |gh_walnascar|
+     - |gh_scarthgap|
+     - |gh_kirkstone|
+
 |MIT| |Matrix|
 
 The meta-labgrid layer provides support for integrating the labgrid exporter
@@ -82,3 +94,11 @@ IV. References
    :target: https://raw.githubusercontent.com/labgrid-project/meta-labgrid/master/COPYING.MIT
 .. |Matrix| image:: https://img.shields.io/matrix/labgrid:matrix.org?label=matrix%20chat
    :target: https://app.element.io/#/room/#labgrid:matrix.org
+.. |gh_kirkstone| image:: https://github.com/labgrid-project/meta-labgrid/actions/workflows/build.yml/badge.svg?branch=kirkstone&event=workflow_dispatch
+   :target: https://github.com/labgrid-project/meta-labgrid/actions?query=event%3Aworkflow_dispatch+branch%3Akirkstone++
+.. |gh_scarthgap| image:: https://github.com/labgrid-project/meta-labgrid/actions/workflows/build.yml/badge.svg?branch=scarthgap&event=workflow_dispatch
+   :target: https://github.com/labgrid-project/meta-labgrid/actions?query=event%3Aworkflow_dispatch+branch%3Ascarthgap++
+.. |gh_walnascar| image:: https://github.com/labgrid-project/meta-labgrid/actions/workflows/build.yml/badge.svg?branch=walnascar&event=workflow_dispatch
+   :target: https://github.com/labgrid-project/meta-labgrid/actions?query=event%3Aworkflow_dispatch+branch%3Awalnascar++
+.. |gh_master| image:: https://github.com/labgrid-project/meta-labgrid/actions/workflows/build.yml/badge.svg?branch=master&event=workflow_dispatch
+   :target: https://github.com/labgrid-project/meta-labgrid/actions?query=event%3Aworkflow_dispatch+branch%3Amaster++
