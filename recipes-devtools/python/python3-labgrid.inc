@@ -35,6 +35,7 @@ RRECOMMENDS:${PN} = " \
 "
 
 SRC_URI = " \
+    git://github.com/labgrid-project/labgrid.git;protocol=https;branch=${SRCBRANCH} \
     file://configuration.yaml \
     file://helpers.yaml \
     file://labgrid-exporter.service \
