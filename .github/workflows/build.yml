@@ -22,14 +22,18 @@ jobs:
       - name: Install required packages
         run: |
           sudo apt-get -q -y --no-install-recommends install diffstat chrpath
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           path: meta-labgrid
+
       - name: Clone poky
         run: git clone --shared --reference-if-able /srv/shared-git/poky.git -b master https://github.com/yoctoproject/poky.git
+
       - name: Clone meta-openembedded
         run: git clone --shared --reference-if-able /srv/shared-git/meta-openembedded.git -b master https://github.com/openembedded/meta-openembedded.git
+
       - name: Initialize build directory
         run: |
           source poky/oe-init-build-env build
@@ -46,33 +50,41 @@ jobs:
             echo 'INHERIT += "rm_work"' >> conf/auto.conf
           fi
           echo 'DISTRO_FEATURES:remove = "alsa bluetooth usbgadget usbhost wifi nfs zeroconf pci 3g nfc x11 opengl ptest wayland vulkan"' >> conf/local.conf
+
       - name: Build labgrid
         run: |
           source poky/oe-init-build-env build
           bitbake python3-labgrid
+
       - name: Build sispmctl
         run: |
           source poky/oe-init-build-env build
           bitbake sispmctl
+
       - name: Build lxa-iobus
         run: |
           source poky/oe-init-build-env build
           bitbake python3-lxa-iobus
+
       - name: Build usbmuxctl
         run: |
           source poky/oe-init-build-env build
           bitbake python3-usbmuxctl
+
       - name: Build usbsdmux
         run: |
           source poky/oe-init-build-env build
           bitbake python3-usbsdmux
+
       - name: Enable development version for labgrid
         run: |
           echo 'LABGRID_USE_DEVEL_VERSION = "1"' >> build/conf/local.conf
+
       - name: Build labgrid (development version)
         run: |
           source poky/oe-init-build-env build
           bitbake python3-labgrid
+
       - name: Cache Data
         env:
           CACHE_KEY: ${{ secrets.YOCTO_CACHE_KEY }}
