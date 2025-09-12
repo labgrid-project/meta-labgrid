@@ -2,7 +2,9 @@ SUMMARY = "Serial Port Support for Python"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d476d94926db6e0008a5b3860d1f5c0d"
 
-inherit pypi setuptools3
+inherit setuptools3
+
+S = "${UNPACKDIR}/pyserial-${PV}"
 
 do_install:append() {
     rm -f ${D}${bindir}/miniterm.py
