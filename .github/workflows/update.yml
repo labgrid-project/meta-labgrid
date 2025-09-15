@@ -1,0 +1,45 @@
+name: update recipes
+
+on:
+  schedule:
+    - cron: '10 21 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update:
+    name: update recipes
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v5
+
+      - name: Configure git
+        run: |
+          git config user.email "info@pengutronix.de"
+          git config user.name "Recipe Updater Bot"
+
+      - name: Create a new branch
+        run: git checkout -b "update/recipes-$(date +%Y%m%d)"
+
+      - name: Run update script
+        run: python3 -u tools/update/update.py tools/update/recipes.yaml
+
+      - name: Commit changes to recipes
+        id: recipe-commit
+        run: |
+          git add .
+          git commit --signoff --message="Recipe updates for $(date +%Y-%m-%d)"
+        continue-on-error: true
+
+      - name: Push changes upstream
+        if: ${{ steps.recipe-commit.outcome == 'success' }}
+        run: git push --set-upstream origin "$(git branch --show-current)"
+
+      - name: Create pull request
+        if: ${{ steps.recipe-commit.outcome == 'success' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr create --base "${{ github.ref_name }}" --fill-first
