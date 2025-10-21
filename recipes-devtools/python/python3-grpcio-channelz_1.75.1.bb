@@ -11,7 +11,7 @@ inherit pypi setuptools3
 
 DEPENDS += "python3-grpcio"
 
-SRC_URI[sha256sum] = "6e4ac2c43d76b245c5f66d98f523db08786b186128a655ee6f20a30a7e68e4f9"
+SRC_URI[sha256sum] = "e0caa06d4de3eb62d3fdc54e5c9dc9003aa3ee21e9c50f5d3538aea854d276f2"
 
 RDEPENDS:${PN} = "python3-grpcio"
 
