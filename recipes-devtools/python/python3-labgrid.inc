@@ -3,6 +3,9 @@ HOMEPAGE = "https://github.com/labgrid-project"
 LICENSE = "LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c0e9407a08421b8c72f578433434f0bd"
 
+PACKAGE_BEFORE_PN += "${PN}-coordinator"
+RDEPENDS:${PN}-coordinator = "${PN}"
+
 RDEPENDS:${PN} = " \
     coreutils \
     libgpiod \
@@ -38,6 +41,7 @@ SRC_URI = " \
     file://configuration.yaml \
     file://helpers.yaml \
     file://labgrid-exporter.service \
+    file://labgrid-coordinator.service \
     file://environment \
     "
 
@@ -47,6 +51,7 @@ DEPENDS += "python3-pytest-runner-native"
 inherit python_setuptools_build_meta systemd
 
 SYSTEMD_SERVICE:${PN} = "labgrid-exporter.service"
+SYSTEMD_SERVICE:${PN}-coordinator = "labgrid-coordinator.service"
 
 # Client/library access to the device via SSH as "root" user is assumed.
 # Additional configuration (dedicated user and related sudoers config for
@@ -61,6 +66,8 @@ do_install:append() {
     install -m 0644 ${UNPACKDIR}/environment ${D}${sysconfdir}/labgrid
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${UNPACKDIR}/labgrid-exporter.service ${D}${systemd_system_unitdir}/
+    install -m 0644 ${UNPACKDIR}/labgrid-coordinator.service ${D}${systemd_system_unitdir}/
 }
 
+FILES:${PN}-coordinator += "${systemd_system_unitdir}/labgrid-coordinator.service /usr/bin/labgrid-coordinator"
 FILES:${PN} += "${sysconfdir} ${systemd_system_unitdir}"
