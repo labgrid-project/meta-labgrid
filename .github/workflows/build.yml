@@ -26,13 +26,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: meta-labgrid
-      - name: Clone poky
-        run: git clone --shared --reference-if-able /srv/shared-git/poky.git -b master https://github.com/yoctoproject/poky.git
+      - name: Clone bitbake
+        run: git clone --shared --reference-if-able /srv/shared-git/bitbake.git -b master https://github.com/openembedded/bitbake.git
+      - name: Clone openembedded-core
+        run: git clone --shared --reference-if-able /srv/shared-git/openembedded-core.git -b master https://github.com/openembedded/openembedded-core.git
       - name: Clone meta-openembedded
         run: git clone --shared --reference-if-able /srv/shared-git/meta-openembedded.git -b master https://github.com/openembedded/meta-openembedded.git
       - name: Initialize build directory
         run: |
-          source poky/oe-init-build-env build
+          source openembedded-core/oe-init-build-env build
           bitbake-layers add-layer ../meta-openembedded/meta-oe
           bitbake-layers add-layer ../meta-openembedded/meta-python
           bitbake-layers add-layer ../meta-labgrid
@@ -48,27 +50,27 @@ jobs:
           echo 'DISTRO_FEATURES:remove = "alsa bluetooth usbgadget usbhost wifi nfs zeroconf pci 3g nfc x11 opengl ptest wayland vulkan"' >> conf/local.conf
       - name: Build labgrid
         run: |
-          source poky/oe-init-build-env build
+          source openembedded-core/oe-init-build-env build
           bitbake python3-labgrid
       - name: Build sispmctl
         run: |
-          source poky/oe-init-build-env build
+          source openembedded-core/oe-init-build-env build
           bitbake sispmctl
       - name: Build lxa-iobus
         run: |
-          source poky/oe-init-build-env build
+          source openembedded-core/oe-init-build-env build
           bitbake python3-lxa-iobus
       - name: Build usbmuxctl
         run: |
-          source poky/oe-init-build-env build
+          source openembedded-core/oe-init-build-env build
           bitbake python3-usbmuxctl
       - name: Build usbsdmux
         run: |
-          source poky/oe-init-build-env build
+          source openembedded-core/oe-init-build-env build
           bitbake python3-usbsdmux
       - name: Build powerrelay
         run: |
-          source poky/oe-init-build-env build
+          source openembedded-core/oe-init-build-env build
           bitbake python3-powerrelay
       - name: Enable development versions
         run: |
@@ -76,11 +78,11 @@ jobs:
           echo 'LXA_IOBUS_USE_DEVEL_VERSION = "1"' >> build/conf/local.conf
       - name: Build labgrid (development version)
         run: |
-          source poky/oe-init-build-env build
+          source openembedded-core/oe-init-build-env build
           bitbake python3-labgrid
       - name: Build lxa-iobus (development version)
         run: |
-          source poky/oe-init-build-env build
+          source openembedded-core/oe-init-build-env build
           bitbake python3-lxa-iobus
       - name: Cache Data
         env:
