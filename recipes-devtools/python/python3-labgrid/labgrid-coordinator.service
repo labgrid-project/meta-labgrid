@@ -1,0 +1,15 @@
+[Unit]
+Description=Labgrid Coordinator
+After=network.target
+
+[Service]
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/usr/bin/labgrid-coordinator
+Restart=on-failure
+DynamicUser=yes
+StateDirectory=labgrid-coordinator
+# Set WorkingDirectory to StateDirectory, this works in DynamicUser mode since symlinks are created
+WorkingDirectory=%S/labgrid-coordinator
+
+[Install]
+WantedBy=multi-user.target
