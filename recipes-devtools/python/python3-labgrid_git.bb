@@ -3,7 +3,7 @@ require python3-labgrid.inc
 SRC_URI += "git://github.com/labgrid-project/labgrid.git;protocol=https;branch=${SRCBRANCH}"
 
 SRCBRANCH = "master"
-SRCREV = "bf387497f73b8bd1bc6a35b52a5c7443468ff21f"
+SRCREV = "f63dfd70a5da2c7007ee8c320fa969df2c0bf16e"
 
 PV = "25.0+git"
 
