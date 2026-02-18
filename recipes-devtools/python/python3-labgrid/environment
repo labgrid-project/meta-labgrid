@@ -3,3 +3,8 @@
 
 LABGRID_COORDINATOR_IP=127.0.0.1
 LABGRID_COORDINATOR_PORT=20408
+
+### The coordinator service will listen to the following ip, if the service is also
+### enabled.
+
+LABGRID_COORDINATOR_LISTEN_IP=0.0.0.0
