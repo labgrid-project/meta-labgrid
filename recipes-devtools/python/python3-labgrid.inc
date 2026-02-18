@@ -38,6 +38,7 @@ SRC_URI = " \
     file://configuration.yaml \
     file://helpers.yaml \
     file://labgrid-exporter.service \
+    file://labgrid-coordinator.service \
     file://environment \
     "
 
@@ -47,6 +48,7 @@ DEPENDS += "python3-pytest-runner-native"
 inherit python_setuptools_build_meta systemd
 
 SYSTEMD_SERVICE:${PN} = "labgrid-exporter.service"
+SYSTEMD_SERVICE:${PN} = "labgrid-coordinator.service"
 
 # Client/library access to the device via SSH as "root" user is assumed.
 # Additional configuration (dedicated user and related sudoers config for
@@ -61,6 +63,7 @@ do_install:append() {
     install -m 0644 ${UNPACKDIR}/environment ${D}${sysconfdir}/labgrid
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${UNPACKDIR}/labgrid-exporter.service ${D}${systemd_system_unitdir}/
+    install -m 0644 ${UNPACKDIR}/labgrid-coordinator.service ${D}${systemd_system_unitdir}/
 }
 
 FILES:${PN} += "${sysconfdir} ${systemd_system_unitdir}"
