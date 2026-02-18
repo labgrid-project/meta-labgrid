@@ -1,17 +1,17 @@
-DESCRIPTION = "Google gRPC channelz"
+DESCRIPTION = "Google gRPC reflection"
 HOMEPAGE = "http://www.grpc.io/"
 SECTION = "devel/python"
 
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=8;endline=8;md5=7145f7cdd263359b62d342a02f005515"
 
-PYPI_PACKAGE = "grpcio_channelz"
+PYPI_PACKAGE = "grpcio_reflection"
 
 inherit pypi setuptools3
 
 DEPENDS += "python3-grpcio"
 
-SRC_URI[sha256sum] = "2ab15ef7b2252a9ba31df500bbe295ce5310a8b01ea6f6d67a17172d914a41a8"
+SRC_URI[sha256sum] = "e6e60c0b85dbcdf963b4d4d150c0f1d238ba891d805b575c52c0365d07fc0c40"
 
 RDEPENDS:${PN} = "python3-grpcio"
 
