@@ -51,7 +51,7 @@ jobs:
       - name: Build labgrid
         run: |
           source openembedded-core/oe-init-build-env build
-          bitbake python3-labgrid
+          bitbake python3-labgrid python3-grpcio-channelz python3-grpcio-reflection python3-pyserial
       - name: Build sispmctl
         run: |
           source openembedded-core/oe-init-build-env build
@@ -59,7 +59,7 @@ jobs:
       - name: Build lxa-iobus
         run: |
           source openembedded-core/oe-init-build-env build
-          bitbake python3-lxa-iobus
+          bitbake python3-lxa-iobus python3-aiohttp-json-rpc python3-janus
       - name: Build usbmuxctl
         run: |
           source openembedded-core/oe-init-build-env build
