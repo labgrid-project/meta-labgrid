@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://PKG-INFO;beginline=6;endline=6;md5=0bcf70029ff7f40a13
 
 PYPI_PACKAGE = "grpcio_reflection"
 
-inherit pypi setuptools3
+inherit python_setuptools_build_meta pypi
 
 DEPENDS += "python3-grpcio"
 
