@@ -66,7 +66,7 @@ do_install:append() {
     install -m 0644 ${UNPACKDIR}/labgrid-coordinator.service ${D}${systemd_system_unitdir}/
 }
 
-PACKAGES += "${PN}-coordinator"
+PACKAGES =+ "${PN}-coordinator"
 RDEPENDS:${PN}-coordinator = "${PN}"
 
 FILES:${PN}-coordinator += "${systemd_system_unitdir}/labgrid-coordinator.service /usr/bin/labgrid-coordinator"
