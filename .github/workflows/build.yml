@@ -51,7 +51,7 @@ jobs:
       - name: Build labgrid
         run: |
           source openembedded-core/oe-init-build-env build
-          bitbake python3-labgrid python3-grpcio-channelz python3-grpcio-reflection python3-pyserial
+          bitbake python3-labgrid python3-pyserial
       - name: Build sispmctl
         run: |
           source openembedded-core/oe-init-build-env build
