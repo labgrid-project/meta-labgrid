@@ -1,0 +1,39 @@
+From 89a1ae9824b21e8ab6f2b095bd8a9c335a636088 Mon Sep 17 00:00:00 2001
+From: Leon Anavi <leon.anavi@konsulko.com>
+Date: Tue, 9 Jun 2026 10:07:19 +0300
+Subject: [PATCH] remote/client: Drop exceptiongroup
+
+Remove the following import line because Yocto release Wrynose provides
+and uses a newer Python version in which as per PEP 654 ExceptionGroup
+is a builtin:
+
+from exceptiongroup import ExceptionGroup
+
+Fixes:
+
+ModuleNotFoundError: No module named 'exceptiongroup'
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Leon Anavi <leon.anavi@konsulko.com>
+---
+ labgrid/remote/client.py | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/labgrid/remote/client.py b/labgrid/remote/client.py
+index 4d2eb0bf..679ccf06 100755
+--- a/labgrid/remote/client.py
++++ b/labgrid/remote/client.py
+@@ -29,9 +29,6 @@ from typing import Any, Dict
+ import attr
+ import grpc
+ 
+-# TODO: drop if Python >= 3.11 guaranteed
+-from exceptiongroup import ExceptionGroup  # pylint: disable=redefined-builtin
+-
+ from .common import (
+     ResourceEntry,
+     ResourceMatch,
+-- 
+2.43.0
+
