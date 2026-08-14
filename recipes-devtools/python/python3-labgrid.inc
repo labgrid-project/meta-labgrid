@@ -44,6 +44,7 @@ SRC_URI = " \
 
 DEPENDS += "python3-setuptools-scm-native"
 DEPENDS += "python3-pytest-runner-native"
+DEPENDS += "python3-wheel-native"
 
 inherit python_setuptools_build_meta systemd
 
