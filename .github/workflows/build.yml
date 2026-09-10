@@ -23,7 +23,7 @@ jobs:
         run: |
           sudo apt-get -q -y --no-install-recommends install diffstat chrpath
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           path: meta-labgrid
       - name: Clone bitbake
