@@ -16,8 +16,7 @@ jobs:
         (github.repository == 'labgrid-project/meta-labgrid' && fromJSON('["self-hosted", "forrest", "build"]')) ||
         'ubuntu-22.04'
       }}
-    # abort if it seems that we're rebuilding too much
-    timeout-minutes: 120
+    timeout-minutes: 360
     steps:
       - name: Install required packages
         run: |
