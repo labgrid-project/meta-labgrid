@@ -8,18 +8,16 @@ RDEPENDS:${PN} = " \
     python3-aiohttp \
     python3-trafaret \
     python3-trafaret-config \
-    python3-aiohttp-jinja2 \
     python3-yarl \
     python3-multidict \
+    python3-gpiod \
 "
 
 SRC_URI = " \
     git://github.com/prevas-dk/labgrid-powerrelay.git;protocol=https;branch=master \
     file://labgrid-powerrelay.service \
     "
-SRCREV = "41c030f09495f67e5573b6f0d7411fef71d92e9e"
-
-DEPENDS += "${PYTHON_PN}-pytest-runner-native"
+SRCREV = "24349f18998caba4e4b1356d42089a1eb8616006"
 
 inherit setuptools3 systemd
 
