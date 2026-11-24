@@ -58,7 +58,7 @@ jobs:
       - name: Build lxa-iobus
         run: |
           source openembedded-core/oe-init-build-env build
-          bitbake python3-lxa-iobus python3-aiohttp-json-rpc
+          bitbake python3-lxa-iobus
       - name: Build usbmuxctl
         run: |
           source openembedded-core/oe-init-build-env build

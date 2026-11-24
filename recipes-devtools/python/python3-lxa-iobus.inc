@@ -5,7 +5,6 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=0674f4b6076ccd96a8b400a746f71dd3"
 
 RDEPENDS:${PN} = " \
     python3-aiohttp \
-    python3-aiohttp-json-rpc \
     python3-can \
     python3-janus \
 "
